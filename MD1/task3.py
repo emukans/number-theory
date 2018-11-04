@@ -11,11 +11,11 @@ import sys
 
 sys.setrecursionlimit(1000000)
 
-def extended_euclid_alghorithm(a, b):
+def extended_euclid_algorithm(a, b):
     if a == 0:
         return (b, 0, 1)
     else:
-        g, x, y = extended_euclid_alghorithm(b % a, a)
+        g, x, y = extended_euclid_algorithm(b % a, a)
         return (g, y - (b // a) * x, x)
 
 def chinese_remainder_theorem(m_list, a_list):
@@ -24,7 +24,7 @@ def chinese_remainder_theorem(m_list, a_list):
     s_list = []
  
     for m_i in m_list:
-        s_list.append(extended_euclid_alghorithm(m_i, n_factor/m_i)[2])
+        s_list.append(extended_euclid_algorithm(m_i, n_factor/m_i)[2])
     
     x = 0
     
